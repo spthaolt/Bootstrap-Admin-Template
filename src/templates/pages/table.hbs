@@ -1,17 +1,15 @@
 ---
 title: Table
 icon: fa fa-table
-stylesheets:
-- lib/datatables/css/demo_page.css
-- lib/datatables/css/DT_bootstrap.css
+cdncss:
+- //cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css
 cdnjs:
-- //ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js
-javascripts:
-- lib/datatables/jquery.dataTables.js
-- lib/datatables/DT_bootstrap.js
-- lib/tablesorter/js/jquery.tablesorter.min.js
-- lib/touch-punch/jquery.ui.touch-punch.min.js
-scripts: $(function() { metisTable(); metisSortable();});
+- //cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js
+- //cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js
+- //cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.js
+- //cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.18.4/js/jquery.tablesorter.min.js
+- //cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js
+scripts: $(function() { Metis.MetisTable(); Metis.metisSortable();});
 ---
 
 <!--Begin Datatables-->
@@ -42,7 +40,7 @@ scripts: $(function() { metisTable(); metisSortable();});
             <header>
                 <h5>Default styles</h5>
                 <div class="toolbar">
-		  <div class="btn-group">
+		                <div class="btn-group">
                     <a href="#defaultTable" data-toggle="collapse" class="btn btn-sm btn-default minimize-box">
                         <i class="fa fa-angle-up"></i>
                     </a>
@@ -93,7 +91,7 @@ scripts: $(function() { metisTable(); metisSortable();});
             <header>
                 <h5>Table Bordered</h5>
                 <div class="toolbar">
-                    <div class="btn-group">		  
+                    <div class="btn-group">
                         <a href="#borderedTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
                             <i class="fa fa-angle-up"></i>
                         </a>
@@ -116,7 +114,7 @@ scripts: $(function() { metisTable(); metisSortable();});
             <header>
                 <h5>Table Condensed</h5>
                 <div class="toolbar">
-                    <div class="btn-group">		  
+                    <div class="btn-group">
                         <a href="#condensedTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
                             <i class="fa fa-angle-up"></i>
                         </a>
@@ -141,7 +139,7 @@ scripts: $(function() { metisTable(); metisSortable();});
             <header>
                 <h5>Optional row classes</h5>
                 <div class="toolbar">
-                    <div class="btn-group">		  
+                    <div class="btn-group">
                         <a href="#optionalTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
                             <i class="fa fa-angle-up"></i>
                         </a>
@@ -164,7 +162,7 @@ scripts: $(function() { metisTable(); metisSortable();});
             <header>
                 <h5>Sortable Table</h5>
                 <div class="toolbar">
-                    <div class="btn-group">		  
+                    <div class="btn-group">
                         <a href="#sortableTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
                             <i class="fa fa-angle-up"></i>
                         </a>

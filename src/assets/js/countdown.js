@@ -1,11 +1,10 @@
 /* Start Countdown Settings */
-
-var startDate = new Date("01/01/2013");
-var endDate = new Date("04/06/2014");
-
-var dif = endDate.getTime() - startDate.getTime();
-var difToSecond = dif / 1000;
-var defaultPercent = 0;
+/*global $:false */
+var startDate = new Date("01/01/2014"),
+    endDate = new Date("04/06/2015"),
+    dif = endDate.getTime() - startDate.getTime(),
+    difToSecond = dif / 1000,
+    defaultPercent = 0;
 
 
 $(function () {
@@ -18,6 +17,7 @@ $(function () {
     $('a[rel=tooltip]').tooltip();
     $('div[rel=tooltip]').tooltip();
 });
+
 
 function updateBar(periods) {
 
@@ -65,17 +65,13 @@ function fillTotalbar(percent) {
 /* Start Google Map*/
 
 var map;
-function initialize() {
-    var mapOptions = {
-        zoom: 7,
-        center: new google.maps.LatLng(40.711614, -73.995323),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scrollwheel: false
-    };
-    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-}
 
-google.maps.event.addDomListener(window, 'load', initialize);
+map = new GMaps({
+        el: '#map_canvas',
+        lat: -12.043333,
+        lng: -77.028333
+    });
+
 
 /* Start Form validation*/
 

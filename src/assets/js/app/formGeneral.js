@@ -1,12 +1,16 @@
-function formGeneral() {
-    "use strict";
+;(function($){
+  "use strict";
+
+  Metis.formGeneral = function() {
 
     $('.with-tooltip').tooltip({
         selector: ".input-tooltip"
     });
 
     /*----------- BEGIN autosize CODE -------------------------*/
-    $('#autosize').autosize();
+    if($('#autosize').length){
+        $('#autosize').autosize();
+    }
     /*----------- END autosize CODE -------------------------*/
 
     /*----------- BEGIN inputlimiter CODE -------------------------*/
@@ -30,20 +34,20 @@ function formGeneral() {
     /*----------- END chosen CODE -------------------------*/
 
     /*----------- BEGIN spinner CODE -------------------------*/
-
-    $('#spin1').spinner();
-    $("#spin2").spinner({
-        step: 0.01,
-        numberFormat: "n"
-    });
-    $("#spin3").spinner({
-        culture: 'en-US',
-        min: 5,
-        max: 2500,
-        step: 25,
-        start: 1000,
-        numberFormat: "C"
-    });
+//     DEPRECATED
+//     $('#spin1').spinner();
+//     $("#spin2").spinner({
+//         step: 0.01,
+//         numberFormat: "n"
+//     });
+//     $("#spin3").spinner({
+//         culture: 'en-US',
+//         min: 5,
+//         max: 2500,
+//         step: 25,
+//         start: 1000,
+//         numberFormat: "C"
+//     });
     /*----------- END spinner CODE -------------------------*/
 
     /*----------- BEGIN uniform CODE -------------------------*/
@@ -76,8 +80,8 @@ function formGeneral() {
     $('#dpMonths').datepicker();
 
 
-    var startDate = new Date(2012, 1, 20);
-    var endDate = new Date(2012, 1, 25);
+    var startDate = new Date(2014, 1, 20);
+    var endDate = new Date(2014, 1, 25);
     $('#dp4').datepicker()
             .on('changeDate', function(ev) {
         if (ev.date.valueOf() > endDate.valueOf()) {
@@ -123,27 +127,37 @@ function formGeneral() {
     /*----------- END daterangepicker CODE -------------------------*/
 
     /*----------- BEGIN timepicker CODE -------------------------*/
-    $('.timepicker-default').timepicker();
-
-    $('.timepicker-24').timepicker({
-        minuteStep: 1,
-        showSeconds: true,
-        showMeridian: false
+    //     DEPRECATED
+    // $('.timepicker-default').timepicker();
+    //
+    // $('.timepicker-24').timepicker({
+    //     minuteStep: 1,
+    //     showSeconds: true,
+    //     showMeridian: false
+    // });
+    $('#datetimepicker4').datetimepicker({
+      pickDate: false
     });
     /*----------- END timepicker CODE -------------------------*/
 
     /*----------- BEGIN toggleButtons CODE -------------------------*/
-    // Resets to the regular style
-$('#dimension-switch').bootstrapSwitch('setSizeClass', '');
-// Sets a mini switch
-$('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-mini');
-// Sets a small switch
-$('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-small');
-// Sets a large switch
-$('#dimension-switch').bootstrapSwitch('setSizeClass', 'switch-large');
+    $.each($('.make-switch'), function () {
+        $(this).bootstrapSwitch({
+            onText: $(this).data('onText'),
+            offText: $(this).data('offText'),
+            onColor: $(this).data('onColor'),
+            offColor: $(this).data('offColor'),
+            size: $(this).data('size'),
+            labelText: $(this).data('labelText')
+        });
+    });
     /*----------- END toggleButtons CODE -------------------------*/
 
     /*----------- BEGIN dualListBox CODE -------------------------*/
-    $.configureBoxes();
+//     DEPRECATED
+//     $.configureBoxes();
     /*----------- END dualListBox CODE -------------------------*/
-}
+};
+
+  return Metis;
+})(jQuery);

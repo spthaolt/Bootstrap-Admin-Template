@@ -1,257 +1,82 @@
 /* jshint node: true */
-module.exports = function (grunt) {
-    "use strict";
+'use strict';
 
-    // Project configuration.
-    grunt.initConfig({
-        // Metadata
-        pkg: grunt.file.readJSON('package.json'),
-        banner: '/**\n' +
-            '* <%=pkg.name %> by <%= pkg.author.email %>\n' +
-            '* Version : <%= pkg.version %> \n' +
-            '* Author : <%= pkg.author.name %> \n' +
-            '* Copyright <%= grunt.template.today("yyyy") %>\n' +
-            '*/\n',
-        clean: {dist: ['dist']},
-        less: {
-            options: {
-                metadata: 'src/*.{json,yml}',
-                paths: 'bower_components/bootstrap/less',
-                imports: {
-                    less: ['mixins.less', 'variables.less']
-                }
-            },
-            development: {
-                files: {
-                    'dist/assets/css/main.css': ['src/assets/less/style.less']
-                }
-            },
-            production: {
-                options: {
-                    compress: true
-                },
-                files: {
-                    'dist/assets/css/main.min.css': ['src/assets/less/style.less']
-                }
-            }
-        },
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: false
-            },
-            main: {
-                src: ['src/assets/js/app/*.js'],
-                dest: 'dist/assets/js/main.js'
-            },
-            countdown: {
-                src: ['src/assets/js/countdown.js'],
-                dest: 'dist/assets/js/countdown.js'
-            },
-            styleSwitcher: {
-                src: ['src/assets/js/style-switcher.js'],
-                dest: 'dist/assets/js/style-switcher.js'
-            },
-            emberApp: {
-                src: ['src/assets/js/app.js'],
-                dest: 'dist/assets/js/app.js'
-            }
-        },
-        uglify: {
-            options: {
-                banner: '<%= banner %>'
-            },
-            main: {
-                src: ['<%= concat.main.dest %>'],
-                dest: 'dist/assets/js/main.min.js'
-            }
-        },
-        jshint: {
-            options: {
-                jshintrc: 'src/assets/js/.jshintrc'
-            },
-            main: {
-                src: ['src/assets/js/*.js']
-            }
-        },
-        assemble: {
-            // Task-level options
-            options: {
-                flatten: true,
-                postprocess: require('pretty'),
-                assets: 'dist/assets',
-                data: 'src/data/*.{json,yml}',
-                partials: ['src/templates/partials/**/*.hbs'],
-                helpers: 'src/helper/**/*.js',
-                layoutdir: 'src/templates/layouts'
-            },
-            pages: {
-                // Target-level options
-                options: {
-                    layout: 'default.hbs'
-                },
-                files: [
-                    {expand: true, cwd: 'src/templates/pages', src: ['*.hbs'], dest: 'dist/'}
-                ]
-            },
-            login: {
-                options: {
-                    layout: 'login.hbs'
-                },
-                files: [
-                    {expand: true, cwd: 'src/templates/login', src: ['login.hbs'], dest: 'dist/'}
-                ]
-            },
-            errors: {
-                options: {
-                    layout: 'errors.hbs'
-                },
-                files: [
-                    {expand: true, cwd: 'src/templates/errors', src: ['*.hbs'], dest: 'dist/'}
-                ]
-            },
-            countdown: {
-                options: {
-                    layout: 'countdown.hbs'
-                },
-                files: [
-                    {expand: true, cwd: 'src/templates/countdown', src: ['*.hbs'], dest: 'dist/'}
-                ]
-            }
-        },
-        copy: {
-            main: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'src/assets/css',
-                        src: ['./**/*.*'],
-                        dest: 'dist/assets/css'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/assets/lib',
-                        src: ['./**/*.*'],
-                        dest: 'dist/assets/lib'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/assets/img',
-                        src: ['./**/*.*'],
-                        dest: 'dist/assets/img'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/assets/submodule',
-                        src: ['./**/*.*'],
-                        dest: 'dist/assets/lib'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/assets/less',
-                        src: ['theme.less'],
-                        dest: 'dist/assets/less'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/ember',
-                        src: ['*.html'],
-                        dest: 'dist'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/assemble-less/node_modules/less/dist/',
-                        src: ['less-1.5.1.min.js'],
-                        dest: 'dist/assets/lib'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/jquery/',
-                        src: ['./**/jquery*.min.*'],
-                        dest: 'dist/assets/lib'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/bootstrap/dist/',
-                        src: ['./**/*.*'],
-                        dest: 'dist/assets/lib/bootstrap'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/font-awesome/',
-                        src: ['./css/*.*', './fonts/*.*'],
-                        dest: 'dist/assets/lib/Font-Awesome'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/gmaps/',
-                        src: ['./**/gmaps.js'],
-                        dest: 'dist/assets/lib/gmaps'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/html5shiv/dist',
-                        src: ['./html5shiv.js'],
-                        dest: 'dist/assets/lib/html5shiv'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'bower_components/respond',
-                        src: ['./respond.min.js'],
-                        dest: 'dist/assets/lib/respond'
-                    }
-                ]
-            }
+function getTask(name) {
+  return require('./src/tasks/' + name + '.js');
+}
+module.exports = function(grunt) {
 
-        },
+  require('time-grunt')(grunt);
+  require('load-grunt-tasks')(grunt, {
+    pattern: [
+      'grunt-*',
+      'assemble*'
+    ]
+  });
 
-        watch: {
-            scripts: {
-                files: ['**/*.js'],
-                tasks: ['dist-js']
-            },
-            css: {
-                files: ['**/*.css'],
-                tasks: ['copy']
-            },
-            assemble: {
-                files: ['**/*.hbs', '**/*.html'],
-                tasks: ['assemble']
-            }
-        }
+  // Project configuration.
+  grunt.initConfig({
 
-    });
+    // Project Metadata
+    pkg: grunt.file.readJSON('package.json'),
+    config: grunt.file.readYAML('_config.yml'),
 
-    // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('assemble-less');
+    banner: '/**\n' +
+      '* Metis - <%=pkg.name %> v<%= pkg.version %>\n' +
+      '* Author : <%= pkg.author.name %> \n' +
+      '* Copyright <%= grunt.template.today("yyyy") %>\n' +
+      '* Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
+      '*/\n',
+
+    clean: getTask('clean'),
+
+    copy: getTask('copy'),
+
+    less: getTask('less'),
+
+    concat: getTask('concat'),
+
+    uglify: getTask('uglify'),
+
+    wiredep: getTask('wiredep'),
 
 
-    //grunt.loadNpmTasks('grunt-recess');
-    // remove grunt-recess modules. because not supported my code
+    usebanner: getTask('usebanner'),
 
-    grunt.loadNpmTasks('assemble');
+    /**
+     * Lint JavaScript
+     */
+    jshint: getTask('jshint'),
 
-    // Test task.
-    //grunt.registerTask('test', ['jshint', 'qunit']);
+    /**
+     * Build HTML from templates and data
+     */
+    assemble: getTask('assemble'),
 
-    // JS distribution task.
-    grunt.registerTask('dist-js', ['concat', 'jshint', 'uglify']);
+    htmlmin: getTask('htmlmin'),
+
+    modernizr: getTask('modernizr'),
+
+    watch: getTask('watch'),
+
+    connect: getTask('connect')
+
+  });
 
 
-    // Full distribution task.
-    grunt.registerTask('dist', ['clean', 'less', 'dist-js', 'copy']);
+  // JS distribution task.
+  grunt.registerTask('dist-js', ['modernizr', 'jshint', 'concat', 'uglify']);
 
-    // Default task.
-    //grunt.registerTask('default', ['test', 'dist']);
 
-    grunt.registerTask('default', ['dist', 'assemble']);
+  // Full distribution task.
+  grunt.registerTask('dist', ['clean', 'copy', 'less', 'dist-js', 'usebanner']);
+
+  grunt.registerTask('serve', ['connect:livereload', 'watch']);
+
+
+  // Default task.
+  //grunt.registerTask('default', ['test', 'dist']);
+
+  grunt.registerTask('default', ['dist', 'assemble']);
 
 };

@@ -1,15 +1,9 @@
-/**
-* Bootstrap-Admin-Template by onokumus@gmail.com
-* Version : 2.1.1
-* Author : Osman Nuri Okumuş
-* Copyright 2013
-*/
 // Core variables and mixins
-@import "../../../bower_components/bootstrap/less/variables"; // Modify this for custom value
+@import "variables"; // Modify this for custom value
 @import "main/variable";
-@import "../../../bower_components/bootstrap/less/mixins";
+@import "mixins";
 
-
+@import "main/general/base";
 /*********************************************************/
 /*                 Layout Styles                         */
 /*********************************************************/
@@ -17,7 +11,7 @@
 @import "main/layout/layout";
 
 // if you want use 3 column layout
-@import "main/layout/layout2";
+//@import "main/layout/layout2";
 
 // top bar styles
 @import "main/general/top";
@@ -61,15 +55,17 @@
 @import "main/components/sortable-table";
 @import "main/components/sparkline";
 @import "main/components/stats-box";
-@import "main/components/wellDark";
+//@import "main/components/wellDark";
 @import "main/components/scroll-bar";
 @import "main/components/calendar";
-@import "main/components/map";
+@import "main/hack";
 
 @import "main/helper/padding";
 @import "main/helper/margin";
 @import "main/helper/background";
 @import "main/helper/bg-image";
+// not required for twbs 3.2.0
+//@import "main/helper/flex-embed";
 
 
 

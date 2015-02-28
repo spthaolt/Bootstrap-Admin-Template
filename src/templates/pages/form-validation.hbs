@@ -2,18 +2,16 @@
 topTitle: Forms
 title: Form Validation
 icon: fa fa-filter
-stylesheets:
-- lib/validationengine/css/validationEngine.jquery.css
 cdncss:
-- http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/flick/jquery-ui.css
+- //cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css
+- //cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.theme.min.css
+- //cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/validationEngine.jquery.min.css
 cdnjs:
-- //ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js
-javascripts:
-- lib/validationengine/js/jquery.validationEngine.js
-- lib/validationengine/js/languages/jquery.validationEngine-en.js
-- lib/jquery-validation-1.11.1/dist/jquery.validate.min.js
-- lib/jquery-validation-1.11.1/localization/messages_ja.js
-scripts: $(function() { formValidation(); });
+- //cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js
+- //cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/jquery.validationEngine.min.js
+- //cdnjs.cloudflare.com/ajax/libs/jQuery-Validation-Engine/2.6.4/languages/jquery.validationEngine-en.min.js
+- //cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js
+scripts: $(function() { Metis.formValidation(); });
 ---
 <style>
     .form-control.col-lg-6 {
@@ -24,24 +22,14 @@ scripts: $(function() { formValidation(); });
     <div class="col-lg-12">
         <div class="box">
             <header class="dark">
-                <div class="icons"><i class="fa fa-ok"></i></div>
+                <div class="icons"><i class="fa fa-check"></i></div>
                 <h5>Popup Validation</h5>
-                <div class="toolbar">
-                    <ul class="nav">
-                        <li>
-                            <div class="btn-group">
-                                <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse"
-                                   href="#collapse2">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <button class="btn btn-xs btn-danger close-box"><i class="fa fa-remove"></i></button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <!-- .toolbar -->
+            {{> toolbar}}
+            <!-- /.toolbar -->
 
             </header>
-            <div id="collapse2" class="body collapse in">
+            <div id="collapse2" class="body">
                 <form class="form-horizontal" id="popup-validation">
 
                     <div class="form-group">
@@ -186,24 +174,12 @@ scripts: $(function() { formValidation(); });
             <header>
                 <div class="icons"><i class="fa fa-th-large"></i></div>
                 <h5>Block Validation</h5>
-                <div class="toolbar">
-                    <ul class="nav">
-                        <li>
-                            <div class="btn-group">
-                                <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse"
-                                   href="#collapseOne">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <button class="btn btn-xs btn-danger close-box">
-                                    <i class="fa fa-remove"></i>
-                                </button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <!-- .toolbar -->
+            {{> toolbar}}
+            <!-- /.toolbar -->
 
             </header>
-            <div id="collapseOne" class="accordion-body collapse in body">
+            <div id="collapseOne" class="body">
                 <form action="#" class="form-horizontal" id="block-validate">
 
                     <div class="form-group">
@@ -286,24 +262,14 @@ scripts: $(function() { formValidation(); });
     <div class="col-lg-12">
         <div class="box">
             <header>
-                <div class="icons"><i class="fa fa-ok"></i></div>
+                <div class="icons"><i class="fa fa-ellipsis-h"></i></div>
                 <h5>Inline Validation</h5>
-                <div class="toolbar">
-                    <ul class="nav">
-                        <li>
-                            <div class="btn-group">
-                                <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse"
-                                   href="#collapse3">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <button class="btn btn-xs btn-danger close-box"><i class="fa fa-remove"></i></button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <!-- .toolbar -->
+            {{> toolbar}}
+            <!-- /.toolbar -->
 
             </header>
-            <div id="collapse3" class="accordion-body collapse in body">
+            <div id="collapse3" class="body">
                 <form action="#" class="form-horizontal" id="inline-validate">
                     <div class="form-group">
                         <label class="control-label col-lg-4">Required</label>

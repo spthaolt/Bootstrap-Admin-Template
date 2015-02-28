@@ -1,30 +1,54 @@
-Metis Admin Template with Twitter Bootstrap [![Build Status](https://travis-ci.org/onokumus/Bootstrap-Admin-Template.png)](http://travis-ci.org/onokumus/Bootstrap-Admin-Template)
-------------------------------------------
+# Bootstrap-Admin-Template
+*  [![Build Status](https://travis-ci.org/onokumus/Bootstrap-Admin-Template.svg)](https://travis-ci.org/onokumus/Bootstrap-Admin-Template) 
+* [![Dependency Status](https://david-dm.org/onokumus/Bootstrap-Admin-Template.svg?theme=shields.io)](https://david-dm.org/onokumus/Bootstrap-Admin-Template)
+* [![devDependency Status](https://david-dm.org/onokumus/Bootstrap-Admin-Template/dev-status.svg?theme=shields.io)](https://david-dm.org/onokumus/Bootstrap-Admin-Template#info=devDependencies)
+* [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-### Download
-Bootstrap 2.3.2 [V.1.2](https://github.com/onokumus/Bootstrap-Admin-Template/archive/v1.2.zip)
+
+> Free Admin Template Based On Twitter Bootstrap 3.x
+
+## TOC
+  * [Download](#download)
+  * [Building](#building)
+  * [Demo](#demo)
+  * [Release History](#release-history)
+  * [Credits](#credits)
+  * [Author](#author)
+  * [License](#license)
+
+## Download
+ * Bootstrap 2.3.2 [v1.2](https://github.com/onokumus/Bootstrap-Admin-Template/archive/v1.2.zip)
 ready for use
 
-Bootstrap 3.0.0 [V2.1.2](https://github.com/onokumus/Bootstrap-Admin-Template/archive/master.zip)
+ * Bootstrap 3.3.0 [v2.3.2](https://github.com/onokumus/Bootstrap-Admin-Template/archive/master.zip)
 ready `dist` folder your use
 
 
 
-### Building
+## Building
 
-#### 2.1.2 Version
+#### 2.3.2 Version
 required [node.js](http://nodejs.org/) & [bower](http://bower.io/) & [grunt](http://gruntjs.com/getting-started)
 
+```shell
     $ git clone https://github.com/onokumus/Bootstrap-Admin-Template.git yourfoldername
     $ cd yourfoldername
-    $ git submodule init
-    $ git submodule update
     $ npm install
-    $ bower install (./node_modules/bower/bin/bower install)
-    $ grunt (./node_modules/grunt-cli/bin/grunt)
-    $ cd dist/
-    $ open index.html
-    
+    $ npm run build
+    $ grunt serve
+```
+
+#### 2.3.2 RTL Version
+required [node.js](http://nodejs.org/) & [bower](http://bower.io/) & [grunt](http://gruntjs.com/getting-started)
+
+```shell
+    $ git clone https://github.com/onokumus/Bootstrap-Admin-Template.git yourfoldername
+    $ cd yourfoldername
+    $ npm install
+    $ npm run buildrtl
+    $ grunt serve
+```
+
 #### 1.2 Version
     $ git clone -b v1.2 https://github.com/onokumus/Bootstrap-Admin-Template.git yourfoldername
     $ cd yourfoldername
@@ -32,24 +56,14 @@ required [node.js](http://nodejs.org/) & [bower](http://bower.io/) & [grunt](htt
     $ git submodule update
     $ open index.html
 
-### Demo
+## Demo
+ * [Demo v2.3.2](http://demo.onokumus.com/metis/)
+ * [RTL v2.3.2](http://demo.onokumus.com/metis/rtl/)
+ * [v1.2 `not development`](http://demo.onokumus.com/metis/v12)
 
-#### For 2.1.2 version
-http://demo.onokumus.com/metis/
 
-#### For 1.2 version 
-(not development)
-http://demo.onokumus.com/metis/v12
 
-### Release History
- * 2013-11-30   v2.1.2 create menu plugin, rewrite menu.less
- * 2013-10-28   v2.1.1 add bower 
- * 2013-10-28   v2.1.1 remove bootsrap, font awesome, gmaps submodule.
- * 2013-10-23   v2.1.1 Adds `bgimage.html` and `bgcolor.html` pages.
- * 2013 [02-15, 10-22] v1.0 - v2.1 I don't remember. Whatever I did.
- * 2013-02-14   v1.0   First Commit.
-
-### Credits
+## Credits
  * [node.js](http://nodejs.org/)
  * [bower](http://bower.io/)
  * [Grunt](http://gruntjs.com/)
@@ -58,10 +72,11 @@ http://demo.onokumus.com/metis/v12
  * [Bootstrap](http://getbootstrap.com/)
  * [LESS](http://lesscss.org/)
  * [Modernizr](http://modernizr.com/)
+ * [Moment.js](http://momentjs.com/)
  * [SubtlePatterns](https://github.com/subtlepatterns/SubtlePatterns)
  * [FullCalendar](http://arshaw.com/fullcalendar/)
  * [Chosen](https://github.com/harvesthq/chosen)
- * [CLEditor](http://premiumsoftware.net/CLEditor)
+ * [CKEditor](http://ckeditor.com/)
  * [Colorpicker for Bootstrap](http://www.eyecon.ro/bootstrap-colorpicker/)
  * [Data Tables](http://www.datatables.net)
  * [Datepicker for Bootstrap](http://www.eyecon.ro/bootstrap-datepicker)
@@ -69,20 +84,17 @@ http://demo.onokumus.com/metis/v12
  * [Input Limiter](http://rustyjeans.com/jquery-plugins/input-limiter)
  * [Jasny Bootstrap](http://jasny.github.com/bootstrap)
  * [jQuery Validation](http://jqueryvalidation.org/)
- * [Dual Listbox](http://www.meadmiracle.com/dlb/DLBDocumentation.aspx)
  * [jQuery Sparklines](http://omnipotent.net/jquery.sparkline)
- * [Animate](https://daneden.me/animate/)
+ * [Animate](http://daneden.github.io/animate.css/)
  * [Autosize](http://www.jacklmoore.com/autosize)
  * [Countdown](http://keith-wood.name/countdown.html)
- * [CSS Beautify](http://cssbeautify.com)
  * [Date range picker](https://github.com/dangrossman/bootstrap-daterangepicker)
  * [Flot](http://www.flotcharts.org)
  * [jQuery Form](http://jquery.malsup.com/form/)
  * [Form Wizard](http://thecodemine.org)
  * [Gritter](http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/)
- * [Magic](http://www.minimamente.com/magic-css3-animations)
  * [Mouse Wheel](https://github.com/brandonaaron/jquery-mousewheel)
- * [PageDown-Bootstrap](https://github.com/samwillis/pagedown-bootstrap)
+ * [PageDown-Bootstrap](https://github.com/kevinoconnor7/pagedown-bootstrap)
  * [Plupload](https://github.com/moxiecode/plupload)
  * [Bootstrap Switch](http://www.larentis.eu/switch/)
  * [tablesorter](http://tablesorter.com/)
@@ -92,8 +104,22 @@ http://demo.onokumus.com/metis/v12
  * [Uniform](http://uniformjs.com/)
  * [Validation Engine](http://www.position-relative.net/)
  * [jquery.validVal](http://validval.frebsite.nl/)
- * [bootstrap-wysihtml5](http://jhollingworth.github.io/bootstrap-wysihtml5/)
+ * [bootstrap3-wysihtml5-bower](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower)
+ * [screenfull.js](https://github.com/sindresorhus/screenfull.js)
+ * [metisMenu](https://github.com/onokumus/metisMenu)
 
-### Licensing
+## Author
+ 
+**Osman Nuri Okumuş**
+ 
++ [github/onokumus](https://github.com/onokumus)
++ [twitter/onokumus](http://twitter.com/onokumus) 
 
-Bootstrap Admin template is open-sourced software licensed under the [MIT License](http://opensource.org/licenses/MIT)
+
+## License
+Copyright (c) 2015 onokumus  
+Released under the MIT license
+
+***
+
+_This file was generated by [verb](https://github.com/assemble/verb) on January 13, 2015._

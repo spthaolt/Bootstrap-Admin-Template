@@ -1,35 +1,69 @@
 {
   "name": "Bootstrap-Admin-Template",
-  "version": "2.1.2",
+  "description": "Free Admin Template Based On Twitter Bootstrap 3.x",
+  "version": "2.3.2",
+  "homepage": "https://github.com/onokumus/Bootstrap-Admin-Template",
   "author": {
-    "name": "Osman Nuri Okumuş",
-    "email": "onokumus@gmail.com",
-    "url": "https://github.com/onokumus"
+    "name": "onokumus",
+    "url": "http://github.com/onokumus/"
   },
-  "description": "Twitter Bootstrap Admin Template",
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/onokumus/Bootstrap-Admin-Template"
+    "url": "https://github.com/onokumus/Bootstrap-Admin-Template.git"
   },
   "bugs": {
     "url": "https://github.com/onokumus/Bootstrap-Admin-Template/issues"
   },
-  "licenses": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/onokumus/Bootstrap-Admin-Template/blob/master/LICENSE.md"
+  },
+  "keywords": [
+    "twbs",
+    "assemble",
+    "grunt",
+    "less",
+    "admin",
+    "template"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "bower": "bower install",
+    "grunt": "grunt",
+    "build": "npm run bower && npm run grunt",
+    "mainrtl": "css-flip dist/assets/css/main.css > dist/assets/css/main.rtl.css",
+    "bootstraprtl": "css-flip bower_components/bootstrap/dist/css/bootstrap.css > dist/assets/lib/bootstrap/dist/css/bootstrap.rtl.css",
+    "buildrtl": "npm run build && npm run mainrtl && npm run bootstraprtl"
+  },
   "devDependencies": {
-    "bower": "~1.2.8",
-    "grunt-cli": "~0.1.11",
-    "grunt": "~0.4.2",
-    "assemble": "~0.4.32",
-    "grunt-contrib-connect": "~0.5.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.7.0",
-    "grunt-contrib-uglify": "~0.2.5",
-    "grunt-contrib-qunit": "~0.3.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-copy": "~0.4.1",
-    "assemble-less": "~0.5.3",
-    "pretty": "~0.1.1"
+    "assemble": "^0.4.42",
+    "css-flip": "^0.5.0",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^2.1.0",
+    "grunt-banner": "^0.3.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-connect": "^0.9.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-cssmin": "^0.11.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-uglify": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-csscomb": "^3.0.0",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-modernizr": "^0.6.0",
+    "grunt-wiredep": "^2.0.0",
+    "handlebars-helper-analytics": "^0.1.1",
+    "jscs": "^1.9.0",
+    "load-grunt-tasks": "^2.0.0",
+    "pretty": "^1.0.0",
+    "time-grunt": "^1.0.0",
+    "verb": "^0.3.9"
   }
 }
